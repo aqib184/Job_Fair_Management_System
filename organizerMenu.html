@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/login.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .option {
+            background-color: #f2fafd;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #00233f;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #00233f;
+            font-size: 20px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #00233f;
+            color: #f2fafd;
+            border: 2px solid #f2fafd;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 50px;
+            color: #00233F;
+        }
+
+        #welcomeMessage {
+            margin-top: 20px;
+        }
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #00233F;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #034c9a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="login.html" class="home-btn">Go Back</a>
+    <h1>Welcome to the Organizer Menu</h1>
+    <h2 id="welcomeMessage">Welcome, <span id="userName"></span>!</h2>
+    <div class="options">
+        <a href="view_participating_organizations.html" class="option">View Participating Organizations</a>
+        <a href="Organization_View_student_proposals.html" class="option">View and Approve Student Proposals</a>
+        <a href="Organization_see_job_fair_days.html" class="option">Job Fair Dates</a>
+        <a href="Organizartion_see__allocate_rooms.html" class="option">Allocate Rooms</a>
+        <a href="Organization_start_interview.html" class="option">Start Interview</a>
+    </div>
+    <script>
+        // Get user's name from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        document.getElementById('userName').textContent = name;
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('images/login.jpg'); /* Added background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+        }
+
+        .options {
+            margin-top: 200px ;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .option {
+            background-color: #f2fafd;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #00233f;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #00233f;
+            font-size: 20px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #00233f;
+            color: #f2fafd;
+            border: 2px solid #f2fafd;
+        }
+
+        #welcomeMessage {
+            color: #00233f;
+            font-size: 36px; 
+            margin-top: 20px;
+            z-index: 999; 
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #00233F;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #034c9a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="login.html" class="home-btn">Go Back</a>
+
+    <div class="options">
+        <a href="admin_view_student_details.html" class="option">View Student Details</a>
+        <a href="admin_view_participating_organization.html" class="option">View Participating Organizations</a>
+        <a href="admin_announce_job_fair_days.html" class="option">Announce Job Fair Days</a>
+        <a href="admin_schedule_interview.html" class="option">Schedule Interveiws for Approved Students</a>
+        <a href="admin_allocate_rooms.html" class="option">Allocate Rooms to Organizations</a>
+    </div>
+    
+    <h1 id="welcomeMessage"></h1>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        welcomeMessage.textContent = `Welcome To the Admin Menu, ${name}!`;
+    </script>
+</body>
+</html>

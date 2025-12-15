@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/login.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        .head{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #00233F;
+            font-size: 36px;
+            margin: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .option {
+            background-color: #f2fafd;
+            padding: 20px;
+            border: 2px solid #00233f;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #00233f;
+            font-size: 20px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #00233f;
+            color: #f2fafd;
+            border: 2px solid #f2fafd;
+        }
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #00233F;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #034c9a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="login.html" class="home-btn">Go Back</a>
+    <div class="container">
+        <h1 class="head">Welcome, <span id="userName"></span>!</h1>
+        <div class="options">
+            <a href="Student_resume_page.html?name=" id="resumeLink"class="option">Resume Build-up</a>
+            <a href="Student_view_organizations_page.html" class="option">View Participating Organizations</a>
+            <a href="student_job_fair_dates.html" class="option">Job Fair Dates</a>
+            <a href="student_view_scheduled_interview.html" class="option">View Scheduled Interview</a>
+            <a href="student_view_anonymous_reviews.html" class="option">View Anonymous Reviews</a>
+        </div>
+    </div>
+
+    <script>
+        // Get user's name from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        document.getElementById('userName').textContent = name;
+
+        // Set the resume link with the name parameter
+        const resumeLink = document.getElementById('resumeLink');
+        resumeLink.href += encodeURIComponent(name);
+    </script>
+</body>
+</html>
